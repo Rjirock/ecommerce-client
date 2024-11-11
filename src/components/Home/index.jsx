@@ -1,5 +1,6 @@
 'use client '
 
+import { BookPanditNavigateBtn } from "@/elements/bookPanditNavigateEl"
 import CarouselEl from "@/elements/HomeEl/CarouselEl"
 import { FeturedProductEl } from "@/elements/HomeEl/featuredProductEl"
 import HelpChatEl from "@/elements/HomeEl/HelpChatEl"
@@ -18,7 +19,8 @@ export const Home = () => {
             <FeturedProductEl />
             <PromotionalBannerEl />
             <TestimonialsPageEl />
-            <HelpChatEl />
+            {/* <HelpChatEl /> */}
+            <BookPanditNavigateBtn />
         </>
     )
 }

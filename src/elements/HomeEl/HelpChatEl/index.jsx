@@ -68,11 +68,11 @@ export const HelpChatEl = () => {
                     {/* Input Box */}
                     <form
                         onSubmit={sendMessage}
-                        className="p-3 border-t border-gray-200 flex"
+                        className="p-3 border-t w-full border-gray-200 flex"
                     >
                         <input
                             type="text"
-                            className="flex-1 p-2 border rounded-l-lg focus:outline-none"
+                            className="flex-1 p-1 border rounded-l-lg focus:outline-none"
                             placeholder="Type your message..."
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
