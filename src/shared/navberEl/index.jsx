@@ -68,25 +68,22 @@ export const Navbar = () => {
       <div>
         <ul className="gap-2 hidden sm:flex">
           <li
-            className={`cursor-pointer hover:underline ${
-              isNavLinkActive("home") ? "underline font-bold" : ""
-            }`}
+            className={`cursor-pointer hover:underline ${isNavLinkActive("home") ? "underline font-bold" : ""
+              }`}
             onClick={() => router.replace("/")}
           >
             Home
           </li>
           <li
-            className={`cursor-pointer hover:underline ${
-              isNavLinkActive("shop") ? "underline font-bold" : ""
-            }`}
+            className={`cursor-pointer hover:underline ${isNavLinkActive("shop") ? "underline font-bold" : ""
+              }`}
             onClick={() => router.replace("/shop")}
           >
             Shop
           </li>
           <li
-            className={`cursor-pointer hover:underline ${
-              isNavLinkActive("about") ? "underline font-bold" : ""
-            }`}
+            className={`cursor-pointer hover:underline ${isNavLinkActive("about") ? "underline font-bold" : ""
+              }`}
             onClick={() => router.replace("/about")}
           >
             About
@@ -96,9 +93,8 @@ export const Navbar = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 z-40 h-screen max-w-screen w-[300px] bg-pink-100 text-black transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-[-10%]" : "-translate-x-[150%]"
-        } sm:hidden`}
+        className={`fixed top-0 z-40 h-screen max-w-screen w-[300px] bg-pink-100 text-black transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-[-10%]" : "-translate-x-[150%]"
+          } sm:hidden`}
       >
         <ul className="gap-4 flex flex-col justify-center items-center w-full mt-[70px] p-2">
           <li className="cursor-pointer hover:underline">Home</li>
@@ -114,9 +110,9 @@ export const Navbar = () => {
       <div>
         {user ? (
           <div className="flex gap-2 text-2xl">
-            <SearchOutlined onClick={serchHanderl} />
-            <ShoppingCartOutlined className="sm:block hidden" />
-            <UserOutlined className="sm:block hidden" />
+            <SearchOutlined className=" active:scale-95" onClick={serchHanderl} />
+            <ShoppingCartOutlined onClick={() => router.replace('/cart')} className="sm:block hidden active:scale-95 " />
+            <UserOutlined className="sm:block hidden active:scale-95 " />
             {/* Hamburger Icon (Mobile) */}
             <div onClick={handleHamburgerClick} className="text-2xl sm:hidden">
               {isOpen ? <CloseOutlined /> : <MenuOutlined />}
@@ -132,16 +128,14 @@ export const Navbar = () => {
 
       {/* serch bar */}
       <div
-        className={`w-full h-screen fixed top-0 left-0 z-40 ${
-          isSerchpoup ? "block" : "hidden"
-        }`}
+        className={`w-full h-screen fixed top-0 left-0 z-40 ${isSerchpoup ? "block" : "hidden"
+          }`}
         style={{ background: "rgba(0,0,0,0.7)" }}
         onClick={() => setIsSerchpoup(false)}
       ></div>
       <div
-        className={`w-full flex justify-center py-5 fixed top-0 left-0 z-50 ${
-          isSerchpoup ? "block" : "hidden"
-        }`}
+        className={`w-full flex justify-center py-5 fixed top-0 left-0 z-50 ${isSerchpoup ? "block" : "hidden"
+          }`}
       >
         <input
           type="text"
@@ -154,9 +148,8 @@ export const Navbar = () => {
           {tabItems.map((item) => (
             <div
               key={item.key}
-              className={`flex flex-col items-center justify-center text-gray-600 cursor-pointer ${
-                path.includes(item.route) ? "text-black" : ""
-              }`}
+              className={`flex flex-col items-center justify-center text-gray-600 cursor-pointer ${path.includes(item.route) ? "text-black" : ""
+                }`}
               onClick={() => router.replace(item.route)}
             >
               <div className="text-xl">{item.icon}</div>

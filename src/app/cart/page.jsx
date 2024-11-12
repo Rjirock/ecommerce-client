@@ -1,7 +1,10 @@
+import Cart from '@/components/cart'
 import React from 'react'
 
-export default function Cart() {
+export default function Page() {
   return (
-    <div>Cart</div>
+    <div>
+      <Cart />
+    </div>
   )
 }
