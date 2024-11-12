@@ -26,28 +26,34 @@ export const BookPanditNavigateBtn = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        if (expanded) {
+            setTimeout(() => {
+                setExpanded(false)
+            }, 2000)
+        }
+    }, [expanded])
     return (
-        <div className="fixed bottom-[58px] sm:bottom-4 right-0 sm:right-4 cursor-pointer active:scale-95 transition-transform duration-500 ease-in-out">
+        <div className="fixed bottom-4 sm:bottom-4 right-4 sm:right-4 cursor-pointer transition-transform duration-300 ease-in-out">
             <button
-                type="primary"
-                shape="round"
-                icon={<RightOutlined />}
-                size="large"
+                type="button"
                 onClick={handleNavigation}
-                className={`transition-all duration-500 ease-in-out ${expanded ? 'pl-4 pr-6' : 'w-12 h-12 flex items-center justify-center'
-                    }`}
+                className={`flex items-center justify-center transition-all duration-500 ease-in-out p-2 rounded-full shadow-lg ${expanded ? 'w-48' : 'w-14'} ${expanded ? 'pl-4 pr-6' : 'pl-2 pr-2'} bg-orange-500 text-white hover:bg-orange-600 transform ${expanded ? 'scale-105' : 'scale-100'}`}
                 style={{
-                    backgroundColor: '#FF4500',
-                    borderColor: '#FF4500',
-                    color: 'white',
                     fontWeight: 'bold',
+                    border: 'none',
                     boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
                     overflow: 'hidden',
                 }}
                 onMouseEnter={() => setExpanded(true)}
                 onMouseLeave={() => setExpanded(false)}
             >
-                {expanded && 'Book Your Pandit Now'}
+                <RightOutlined onClick={() => setExpanded(false)} className="text-white transition-transform duration-500" />
+                {expanded && (
+                    <span className="ml-2 text-sm whitespace-nowrap  transition-opacity duration-300 opacity-100">
+                        Book Your Pandit Now
+                    </span>
+                )}
             </button>
         </div>
     );
