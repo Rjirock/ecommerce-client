@@ -28,7 +28,7 @@ export const BookPanditNavigateBtn = () => {
 
     return (
         <div className="fixed bottom-[58px] sm:bottom-4 right-0 sm:right-4 cursor-pointer active:scale-95 transition-transform duration-500 ease-in-out">
-            <Button
+            <button
                 type="primary"
                 shape="round"
                 icon={<RightOutlined />}
@@ -48,7 +48,7 @@ export const BookPanditNavigateBtn = () => {
                 onMouseLeave={() => setExpanded(false)}
             >
                 {expanded && 'Book Your Pandit Now'}
-            </Button>
+            </button>
         </div>
     );
 };
