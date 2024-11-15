@@ -1,10 +1,12 @@
 'use client'
 
+import LoginEl from "@/elements/loginEl";
+import { LayoutEl } from "@/shared/layoutEl";
 const Login= () => {
     return(
-        <div>
-            login component
-        </div>
+        <LayoutEl>
+            <LoginEl />
+        </LayoutEl>
     );
 }
 

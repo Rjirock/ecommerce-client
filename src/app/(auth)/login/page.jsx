@@ -1,10 +1,10 @@
 'use client'
 
+import Login from "@/components/auth/loginCom";
+
 const Page= () => {
     return (
-        <div>
-            login page
-        </div>
+        <Login />
     );
 }
 

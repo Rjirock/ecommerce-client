@@ -1,10 +1,12 @@
 'use client'
 
+import RegisterEl from "@/elements/registerEl";
+import { LayoutEl } from "@/shared/layoutEl";
 const Register= () => {
     return(
-        <div>
-            register component
-        </div>
+        <LayoutEl>
+            <RegisterEl />
+        </LayoutEl>
     );
 }
 
