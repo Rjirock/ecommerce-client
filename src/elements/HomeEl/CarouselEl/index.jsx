@@ -1,36 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { Carousel } from 'antd';
-import b1 from '@/Assets/one.png';
-import b2 from '@/Assets/two.png';
-import b3 from '@/Assets/three.png';
+import React, { useRef } from 'react';
+import { Carousel, Button } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import "./CarouselEl.css"
+const carouselData = [
+  {
+    imgSrc: '/one.png',
+    altText: '',
+    title: ['']
+  },
+  {
+    imgSrc: '/two.png',
+    altText: '',
+    title: []
+  },
+  {
+    imgSrc: '/three.png',
+    altText: '',
+    title: [ ]
+  }
+];
 
-const images = [b1, b2, b3];
-
-export const CarouselEl = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsLoaded(true), 100); // slight delay to ensure proper loading
-        return () => clearTimeout(timer);
-    }, []);
-
+const HeroSection = () => {
+    const carouselRef = useRef(null);
+  
     return (
-        <>
-            <div className={`overflow-hidden w-full h-fit ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-                <Carousel arrows infinite autoplay effect="scrollx">
-                    {images.map((image, index) => (
-                        <div key={index} className="relative w-full max-h-[70vh]">
-                            <img
-                                className="h-full w-full object-cover"
-                                src={image.src}
-                                alt={`Carousel Image ${index + 1}`}
-                            />
-                        </div>
-                    ))}
-                </Carousel>
+      <div className="hero-section">
+        <Carousel ref={carouselRef} autoplay>
+          {carouselData.map((item, index) => (
+            <div key={index} className="carousel-item">
+              <img
+                src={item.imgSrc}
+                alt={item.altText}
+                className="carousel-image"
+              />
+              <div className="carousel-title">
+                {item.title.map((line, i) => (
+                  <h2 key={i} className="text-center">
+                    {line}
+                  </h2>
+                ))}
+              </div>
             </div>
-        </>
+          ))}
+        </Carousel>
+  
+        {/* Carousel control buttons */}
+        <div className="carousel-controls">
+          <Button
+            shape="circle"
+            icon={<LeftOutlined />}
+            onClick={() => carouselRef.current.prev()}
+            className="carousel-control-button left"
+          />
+          <Button
+            shape="circle"
+            icon={<RightOutlined />}
+            onClick={() => carouselRef.current.next()}
+            className="carousel-control-button right"
+          />
+        </div>
+      </div>
     );
-};
-
-export default CarouselEl;
+  };
+  
+  export default HeroSection;
