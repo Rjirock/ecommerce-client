@@ -11,7 +11,9 @@ const Navbar2El = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const user={
+    role:null
+  }
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 150);
     window.addEventListener('scroll', handleScroll);
@@ -26,9 +28,18 @@ const Navbar2El = () => {
 
   const profileMenu = (
     <Menu>
-      <Menu.Item key="account">
+      {
+        user ? (
+          <Menu.Item key="account">
         <Link href="/account">Account</Link>
       </Menu.Item>
+        ) :
+        (
+          <Menu.Item key="account">
+        <Link href="/account">Login</Link>
+      </Menu.Item>
+        )
+      }
       <Menu.Item key="logout">
         <Link href="/logout">Logout</Link>
       </Menu.Item>
@@ -71,7 +82,8 @@ const Navbar2El = () => {
             </Link>
           ))}
 
-          <div className="profile-dropdown">
+          {
+            user.role ? <div className="profile-dropdown">
             <Dropdown overlay={profileMenu} trigger={['hover']}>
               <Button
                 icon={<UserOutlined />}
@@ -80,7 +92,8 @@ const Navbar2El = () => {
                 size="large"
               />
             </Dropdown>
-          </div>
+          </div> : <div><Button>Login</Button></div>
+          }
         </div>
 
         <Button className="menu-toggle sm:hidden" onClick={toggleDrawer}>
