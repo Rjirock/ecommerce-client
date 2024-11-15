@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Image, Upload, message } from 'antd';
-// import toast from ''
+import { Image, Upload, message, Progress } from 'antd';
+import toast from 'react-hot-toast';
 
 const getBase64 = (file) =>
     new Promise((resolve, reject) => {
@@ -11,12 +11,12 @@ const getBase64 = (file) =>
         reader.onerror = (error) => reject(error);
     });
 
-const uploadImageToCloudinary = async (file) => {
+const uploadImageToCloudinary = async (file, onProgress) => {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'your_upload_preset'); // Replace with your Cloudinary upload preset
+    formData.append('upload_preset', process.env.NEXT_PUBLIC_UPLOAD_PRESET);
 
-    const response = await fetch('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUD_NAME}/image/upload`, {
         method: 'POST',
         body: formData,
     });
@@ -27,10 +27,11 @@ const uploadImageToCloudinary = async (file) => {
     return data.secure_url;
 };
 
-export const ImageUpload = () => {
+export const ImageUpload = ({ fileList, setFileList }) => {
     const [previewOpen, setPreviewOpen] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
-    const [fileList, setFileList] = useState([]);
+    const [uploading, setUploading] = useState(false);
+    const [progress, setProgress] = useState(0);
 
     const handlePreview = async (file) => {
         if (!file.url && !file.preview) {
@@ -40,19 +41,24 @@ export const ImageUpload = () => {
         setPreviewOpen(true);
     };
 
+
     const handleChange = async ({ file, fileList: newFileList }) => {
         if (file.size && file.size / 1024 / 1024 > 1) {
-            file.error = 'file should be less then 1mb'
             const updatedFileList = newFileList.filter((item) => item.uid !== file.uid);
             setFileList(updatedFileList);
+            toast.error("Image should be less than 1MB");
             return;
         }
 
         setFileList(newFileList);
 
-        if (file.status === 'done') {
+        if (file.status === 'uploading') {
+            setUploading(true);
             try {
-                const url = await uploadImageToCloudinary(file.originFileObj);
+                const url = await uploadImageToCloudinary(file.originFileObj, (percent) => {
+                    setProgress(percent);
+                });
+
                 const updatedFileList = newFileList.map((item) =>
                     item.uid === file.uid ? { ...item, status: 'done', url } : item
                 );
@@ -64,6 +70,9 @@ export const ImageUpload = () => {
                 );
                 setFileList(updatedFileList);
                 message.error('Failed to upload image');
+            } finally {
+                setUploading(false);
+                setProgress(0);
             }
         } else if (file.status === 'error') {
             message.error('Failed to upload image');
@@ -72,12 +81,6 @@ export const ImageUpload = () => {
 
     console.log(fileList);
 
-
-    const customUpload = ({ file, onSuccess, onError }) => {
-        setTimeout(() => {
-            onSuccess('ok'); // Simulate a successful response
-        }, 0);
-    };
 
     const uploadButton = (
         <button
@@ -95,15 +98,22 @@ export const ImageUpload = () => {
     return (
         <>
             <Upload
-                customRequest={customUpload}
                 listType="picture-circle"
                 fileList={fileList}
                 onPreview={handlePreview}
                 onChange={handleChange}
                 showUploadList={{ showRemoveIcon: true }}
             >
-                {fileList.length >= 8 ? null : uploadButton}
+                {fileList.length >= 4 ? null : uploadButton}
             </Upload>
+            {/* {uploading && (
+                <Progress
+                    percent={progress}
+                    status="active"
+                    size="small" // Updated to 'size' instead of 'strokeWidth'
+                    style={{ marginTop: 16 }}
+                />
+            )} */}
             {previewImage && (
                 <Image
                     wrapperStyle={{ display: 'none' }}
