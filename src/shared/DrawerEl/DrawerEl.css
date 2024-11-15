@@ -1,0 +1,70 @@
+/* Drawer Styles */
+.cd-custom-drawer {
+    background-color: #f0f4f8;
+  }
+  
+  .cd-drawer-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cd-drawer-menu-item {
+    transition: all 0.3s ease;
+  }
+  
+  .cd-drawer-link {
+    display: block;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .cd-drawer-link:hover {
+    background-color: #e6f7ff;
+    color: #0047FF;
+    box-shadow: 0px 4px 10px rgba(0, 71, 255, 0.1);
+  }
+  
+  .cd-search-input {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  
+  .cd-search-input::placeholder {
+    color: #999;
+  }
+  
+  .cd-text-gray-600 {
+    color: #606060;
+  }
+  
+  .cd-text-gray-800 {
+    color: #333333;
+  }
+  
+  .cd-hover-text-gray-800:hover {
+    color: #0047FF;
+  }
+  
+  .cd-mr-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .cd-flex {
+    display: flex;
+  }
+  
+  .cd-items-center {
+    align-items: center;
+  }
+  
+  .cd-space-y-5 > * + * {
+    margin-top: 1.25rem;
+  }
+  

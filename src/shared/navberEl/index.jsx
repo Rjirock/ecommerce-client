@@ -146,6 +146,7 @@ export const Navbar = () => {
         <input
           type="text"
           className="outline-0 border-2 py-2 px-3 rounded-md"
+          size={0}
         />
       </div>
 

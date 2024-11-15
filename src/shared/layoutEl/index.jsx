@@ -1,14 +1,15 @@
 'use client'
 
 import { Footer } from "../footerEl"
-import { Navbar } from "../navberEl"
+import Navbar2El from "../Navbar2El"
+
 import React from "react"
 
 
 export const LayoutEl = ({ children }) => {
     return (
         <>
-            <Navbar />
+            <Navbar2El/>
             {children}
             <Footer />
         </>
