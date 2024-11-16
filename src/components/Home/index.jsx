@@ -8,18 +8,19 @@ import { HomeInfoEl } from "@/elements/HomeEl/homeInfoEl"
 import { NewProductListEl } from "@/elements/HomeEl/newProductEl"
 import { PromotionalBannerEl } from "@/elements/HomeEl/PromotionalBannerEl"
 import TestimonialsPageEl from "@/elements/HomeEl/TestimonialEl"
-
+import TopProductCarrousel from "@/elements/HomeEl/TopProductCarousel"
 
 export const Home = () => {
     return (
         <>
             <CarouselEl />
             <HomeInfoEl />
+            <TopProductCarrousel />
             <NewProductListEl />
             <FeturedProductEl />
             <PromotionalBannerEl />
             <TestimonialsPageEl />
-            {/* <HelpChatEl /> */}
+            <HelpChatEl />
             <BookPanditNavigateBtn />
         </>
     )
