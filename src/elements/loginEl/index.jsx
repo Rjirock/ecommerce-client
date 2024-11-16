@@ -1,6 +1,7 @@
 'use client'
 
 import Input from "../InputEl/InputEl";
+import Link from "next/link";
 
 const LoginEl= () => {
 
@@ -50,12 +51,13 @@ const LoginEl= () => {
                     </button>
                     <p className="text-sm self-center">
                         New User?
-                        <span 
+                    
+                        <Link 
+                        href={'/register'}
                         className="text-blue-600 cursor-pointer"
-                        // onClick={() => { }}
                         >
                             register
-                        </span>
+                        </Link>
                     </p>
                 </div>
             </div>

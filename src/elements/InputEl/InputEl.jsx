@@ -16,7 +16,7 @@ const Input = ({ type,name,ph }) => {
             placeholder={ph}
             value={inputValue}
             onChange={hanldeChange}
-            className="outline-none border shadow-sm py-1 px-2 text-sm rounded-md focus:border-[]"
+            className="outline-none border shadow-sm py-1 px-2 text-sm rounded-md focus:border-[] w-full"
         />
     );
 }

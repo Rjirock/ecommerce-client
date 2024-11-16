@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import Input from "../InputEl/InputEl";
 
 const RegisterEl= () => {
@@ -15,7 +16,7 @@ const RegisterEl= () => {
                 </div>
 
                 <form action="" className="flex flex-col gap-2">
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 md:flex-row flex-col ">
                         <Input type='text' name ='first_name' ph='First Name'/>
                         <Input type='text' name ='last_name' ph='Last Name'/>
 
@@ -52,7 +53,8 @@ const RegisterEl= () => {
                         Facebook
                     </button>
                     <p className="text-sm self-center">
-                        Already have an account?<span className="text-blue-600 cursor-pointer">log In</span>
+                        Already have an account?
+                        <Link href={'/login'} className="text-blue-600 cursor-pointer">log In</Link>
                     </p>
                 </div>
             </div>
