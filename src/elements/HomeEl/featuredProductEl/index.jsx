@@ -1,5 +1,6 @@
 import { ProductCardEl } from "@/elements/productCardEl";
 import { Separator } from "@radix-ui/react-separator";
+import { NewProductListEl2 } from "../newProductEl2";
 
 const dummyProducts = [
     {
@@ -77,24 +78,7 @@ const dummyProducts = [
 
 export const FeturedProductEl = () => (
     <div className=" container ml-auto mr-auto w-full flex flex-col gap-3 mt-7 p-2 " >
-        <div className=" w-full flex items-center justify-start  ">
-            <p className=" font-bold text-3xl "> Fetured Product</p>
-        </div>
-        <Separator />
-        <div className="overflow-x-auto overflow-y-hidden h-fit grid grid-flow-col auto-cols-max gap-2 justify-start w-full">
-            {dummyProducts.map(product => (
-                <ProductCardEl
-                    key={product.id}
-                    id={product.id}
-                    name={product.name}
-                    price={product.price}
-                    discountPrice={product.discountPrice}
-                    image={product.image}
-                />
-            ))}
-        </div>
-
-
+       <NewProductListEl2 dummyProducts={dummyProducts} tittle="Featured Products"  />
 
     </div>
 
