@@ -7,7 +7,7 @@ import { Carousel } from 'antd';
 const ProductCarousel = () => {
   return (
     <div
-      className="bg-white p-6 rounded-lg shadow-xl"
+      className="bg-white p-1 rounded-lg shadow-xl"
       style={{
         order: 1,
         height: 'calc(100% - 16px)',

@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { GifOutlined, MenuOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import { Drawer, Button } from 'antd';
-import { ShopOutlined } from '@ant-design/icons';
 import ShCaHawanSamagiriEl from '@/elements/ShopPageCategories/ShCaHawanSamagriEl';
 import ShCaFlowersEl from '@/elements/ShopPageCategories/ShCaFlowersEl';
 import ShCaFruitsEl from '@/elements/ShopPageCategories/ShCaFruitsEl';
@@ -17,7 +16,7 @@ const ShopPageLayoutEl = () => {
     { id: 1, name: 'Hawan Samagiri', component: <ShCaHawanSamagiriEl /> },
     { id: 2, name: 'Flowers', component: <ShCaFlowersEl /> },
     { id: 3, name: 'Fruits', component: <ShCaFruitsEl /> },
-    { id: 3, name: 'Gifts', component: <ShCaGiftEl/> },
+    { id: 4, name: 'Gifts', component: <ShCaGiftEl /> },
   ];
 
   const handleCategoryChange = (categoryId) => {
@@ -88,10 +87,10 @@ const ShopPageLayoutEl = () => {
         </Button>
 
         <div>
-          {/* <h2 className="text-lg font-bold mb-4 flex items-center">
-            <ShopOutlined className="mr-2" /> Category Content
-          </h2> */}
-          <div className="p-4 border rounded-lg bg-white shadow-sm">{renderCategoryContent()}</div>
+          {/* Render category content */}
+          <div className="p-4 border rounded-lg bg-white shadow-sm">
+            {renderCategoryContent()}
+          </div>
         </div>
       </div>
     </div>
