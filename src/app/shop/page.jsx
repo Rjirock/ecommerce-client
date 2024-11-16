@@ -6,7 +6,6 @@ export default function Shop() {
   return (
     <LayoutEl>
         <ShopComp/>
-        <h1>Aditya</h1>
     </LayoutEl>
   )
 }
