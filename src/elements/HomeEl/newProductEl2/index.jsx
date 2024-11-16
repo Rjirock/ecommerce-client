@@ -55,7 +55,7 @@ export const NewProductListEl2 = ({dummyProducts=[],tittle=""}) => {
                                     <span className="line-through text-gray-400">₹{product.discountPrice}</span>
                                     <span className="font-bold text-purple-700 ml-2">₹{product.price}</span>
                                 </p>
-                                <button className="mt-4 px-5 py-2 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition-all duration-300">
+                                <button className="mt-4 px-5 py-2 text-sm font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 transition-all duration-700">
                                     Buy Now
                                 </button>
                             </div>
@@ -66,7 +66,7 @@ export const NewProductListEl2 = ({dummyProducts=[],tittle=""}) => {
                 {currentPage > 1 && (
                     <button
                         onClick={handlePrev}
-                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white rounded-full p-4 shadow-lg hover:bg-purple-700 transition-all ease duration-300"
+                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white rounded-full p-4 shadow-lg hover:bg-purple-700 transition-all duration-700"
                     >
                         <LeftOutlined style={{ fontSize: '20px' }} />
                     </button>
@@ -74,7 +74,7 @@ export const NewProductListEl2 = ({dummyProducts=[],tittle=""}) => {
                 {currentPage < totalPages && (
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white rounded-full p-4 shadow-lg hover:bg-purple-700 transition-all ease duration-300"
+                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-purple-600 text-white rounded-full p-4 shadow-lg hover:bg-purple-700 transition-all duration-700"
                     >
                         <RightOutlined style={{ fontSize: '20px' }} />
                     </button>
@@ -84,3 +84,6 @@ export const NewProductListEl2 = ({dummyProducts=[],tittle=""}) => {
         </div>
     );
 };
+
+
+
