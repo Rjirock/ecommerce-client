@@ -1,8 +1,8 @@
+'use client'
+import Register from "@/components/auth/registerCom";
 const Page= () => {
     return (
-        <div>
-            register page
-        </div>
+        <Register />
     );
 }
 
