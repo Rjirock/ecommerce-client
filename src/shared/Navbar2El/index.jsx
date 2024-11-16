@@ -11,9 +11,7 @@ const Navbar2El = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const user={
-    role:"admin"
-  }
+  const user= null;
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 150);
     window.addEventListener('scroll', handleScroll);
@@ -83,7 +81,7 @@ const Navbar2El = () => {
           ))}
 
           {
-            user.role ? <div className="profile-dropdown">
+            user ? <div className="profile-dropdown">
             <Dropdown overlay={profileMenu} trigger={['hover']}>
               <Button
                 icon={<UserOutlined />}
@@ -92,7 +90,7 @@ const Navbar2El = () => {
                 size="large"
               />
             </Dropdown>
-          </div> : <div><Button>Login</Button></div>
+          </div> : <div><Link href="/login"><Button>Login</Button></Link></div>
           }
         </div>
 
