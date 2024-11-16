@@ -12,7 +12,7 @@ const Navbar2El = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const user={
-    role:null
+    role:"admin"
   }
   useEffect(() => {
     const handleScroll = () => setIsSticky(window.scrollY > 150);
