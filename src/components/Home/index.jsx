@@ -16,8 +16,8 @@ export const Home = () => {
         <>
             <CarouselEl />
             {/* <HomeInfoEl /> */}
-            {/* <TopProductCarEl2/> */}
-            <TopProductCarrousel />
+            <TopProductCarEl2/>
+            {/* <TopProductCarrousel /> */}
 
             <NewProductListEl />
             <FeturedProductEl />
