@@ -1,10 +1,13 @@
+import ShopCarouselEl from "@/elements/ShopEl/ShopHeroCarousel"
+import ShopPageLayoutEl from "@/elements/ShopEl/ShopPageLayoutEl"
 
 
 
 const ShopComp=()=>{
     const display=(
         <>
-          <h1>Shop Page</h1>
+          {/* <ShopCarouselEl/> */}
+          <ShopPageLayoutEl/>
         </>
     )
     return display
